@@ -17,11 +17,11 @@
       <div class="col-3 text-end">
         <% @user = User.find_by({ "id" => session["user_id"] }) %>
         <% if @user == nil %>
-          <a href="/login" class="btn btn-default">Login</a>
+          <a href="/users/new" class="btn btn-default">Sign Up</a>
           |
-          <a href="/users/new" class="btn btn-default">Signup</a>
+          <a href="/login" class="btn btn-default">Login</a>
         <% else %>
-          Hey, <%= @user["first_name"] %>
+          Logged in as: <%= @user["first_name"] %>
           |
           <a href="/logout" class="btn btn-default">Logout</a>
         <% end %>

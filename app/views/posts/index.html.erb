@@ -2,13 +2,14 @@
   <% for post in @posts %>
     <div class="col-3">
       <h4>
+        <%# Display the name of the user that created the post: %>
         <%# 1. find user who created post %>
         <% user = User.find_by({ "id" => post["user_id"] }) %>
         <%# 2. handle any potential bad data where the post is missing a user %>
-        <% if user == nil %>
-          anonymous
-        <% else %>
+        <% if user != nil %>
           <%= user["first_name"] %>
+        <% else %>
+          anonymous
         <% end %>
       </h4>
       <img src="<%= post["image"] %>" class="img-fluid w-full">

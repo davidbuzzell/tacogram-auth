@@ -1,9 +1,7 @@
 <h1>New Post</h1>
 
-<%# TODO: only display form when user is logged in %>
-<% if @user == nil %>
-  You must first <a href="/login">login</a> to post.
-<% else %>
+<%# Only display form when user is logged in. %>
+<% if @user != nil %>
   <form action="/posts" method="post">
     <p>
       <label for="body_input">Body</label>
@@ -18,4 +16,6 @@
     <button>Save</button>
     <a href="/posts">Cancel</a>
   </form>
+<% else %>
+  You must first <a href="/login">login</a> to post.
 <% end %>
